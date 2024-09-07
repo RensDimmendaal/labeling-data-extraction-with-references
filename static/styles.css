@@ -1,0 +1,51 @@
+/* General layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.active-field {
+    border: 2px solid #4CAF50;
+    padding: 10px;
+}
+
+.job-text-container {
+    overflow-y: auto;
+    height: 400px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+pre.job-posting {
+    white-space: pre-wrap;  /* Preserve line breaks and wraps text */
+    line-height: 1.5;
+    font-family: "Courier New", Courier, monospace;
+}
+
+mark {
+    background-color: yellow;
+    font-weight: bold;
+}
