@@ -1,0 +1,32 @@
+{
+    "job_title": {
+        "fact": "Senior Software Engineer",
+        "substring_quote": [
+            "Senior Software Engineer to join our team"
+        ]
+    },
+    "company": {
+        "fact": "Tech Solutions Inc.",
+        "substring_quote": [
+            "Company: Tech Solutions Inc."
+        ]
+    },
+    "location": {
+        "fact": "San Francisco, CA",
+        "substring_quote": [
+            "Location: San Francisco, CA"
+        ]
+    },
+    "salary": {
+        "fact": "$120,000 - $140,000 annually",
+        "substring_quote": [
+            "Salary: $120,000 - $140,000 annually"
+        ]
+    },
+    "minimum_education": {
+        "fact": "Bachelor\u2019s degree in Computer Science",
+        "substring_quote": [
+            "Minimum Education: Bachelor\u2019s degree in Computer Science or related field"
+        ]
+    }
+}
