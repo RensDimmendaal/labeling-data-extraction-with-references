@@ -49,3 +49,46 @@ mark {
     background-color: yellow;
     font-weight: bold;
 }
+
+.field-form {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Styling for the active field */
+.active-field {
+    background-color: #f0f8ff;  /* Light blue background */
+    border: 2px solid #007bff;  /* Blue border to make it stand out */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow for emphasis */
+}
+
+/* Style for labels and input fields */
+.field-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.field-form input, .field-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.field-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.field-form button:hover {
+    background-color: #0056b3;
+}

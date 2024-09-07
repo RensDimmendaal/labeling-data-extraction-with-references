@@ -1,23 +1,22 @@
 {
-    "job_title": {
-      "fact": "Marketing Manager",
-      "substring_quote": ["Marketing Manager to lead our marketing team"]
-    },
-    "company": {
-      "fact": "ABC Marketing",
-      "substring_quote": ["Company: ABC Marketing"]
-    },
-    "location": {
-      "fact": "New York, NY",
-      "substring_quote": ["Location: New York, NY"]
-    },
-    "salary": {
-      "fact": "$90,000 - $110,000 annually",
-      "substring_quote": ["Salary: $90,000 - $110,000 annually"]
-    },
-    "minimum_education": {
-      "fact": "MBA or equivalent experience",
-      "substring_quote": ["Minimum Education: MBA or equivalent experience"]
-    }
+  "job_title": {
+    "fact": "Marketing Manager",
+    "substring_quote": "Marketing Manager to lead our marketing team"
+  },
+  "company": {
+    "fact": "ABC Marketing",
+    "substring_quote": "Company: ABC Marketing"
+  },
+  "location": {
+    "fact": "New York, NY",
+    "substring_quote": "Location: New York, NY"
+  },
+  "salary": {
+    "fact": "$90,000 - $110,000 annually",
+    "substring_quote": "Salary: $90,000 - $110,000 annually"
+  },
+  "minimum_education": {
+    "fact": "MBA or equivalent experience",
+    "substring_quote": "Minimum Education: MBA or equivalent experience"
   }
-  
+}
