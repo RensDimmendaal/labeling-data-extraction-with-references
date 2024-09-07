@@ -117,6 +117,7 @@ def get(filename: str, active_field: str):
             Pre(NotStr(highlighted_text), cls="job-posting"),
             cls="job-text-container",
         ),
+        Script(src="/static/script.js"),
         columns=2,
     )
 
