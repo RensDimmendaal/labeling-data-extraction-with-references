@@ -29,9 +29,42 @@ def next_field(base_model, current_field: str) -> str:
         )
 
 
-# Create the FastHTML app
-app, rt = fast_app()
+markdown_js = """
+import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+import { proc_htmx} from "https://cdn.jsdelivr.net/gh/answerdotai/fasthtml-js/fasthtml.js";
+proc_htmx('.markdown', e => e.innerHTML = marked.parse(e.textContent));
+"""
 
+# We will use this in our `exception_handlers` dict
+def _not_found(req, exc): return Titled('Oh no!', Div('We could not find that page :('))
+# The `FastHTML` class is a subclass of `Starlette`, so you can use any parameters that `Starlette` accepts.
+# In addition, you can add your Beforeware here, and any headers you want included in HTML responses.
+# FastHTML includes the "HTMX" and "Surreal" libraries in headers, unless you pass `default_hdrs=False`.
+app = FastHTML(
+               # These are the same as Starlette exception_handlers, except they also support `FT` results
+               exception_handlers={404: _not_found},
+               # PicoCSS is a particularly simple CSS framework, with some basic integration built in to FastHTML.
+               # `picolink` is pre-defined with the header for the PicoCSS stylesheet.
+               # You can use any CSS framework you want, or none at all.
+               hdrs=(picolink,
+                       Link(rel='stylesheet', href='/static/styles.css', type='text/css'),
+                    #    Style(".job-posting {color: red;}")
+                     # `Style` is an `FT` object, which are 3-element lists consisting of:
+                     # (tag_name, children_list, attrs_dict).
+                     # FastHTML composes them from trees and auto-converts them to HTML when needed.
+                     # You can also use plain HTML strings in handlers and headers,
+                     # which will be auto-escaped, unless you use `NotStr(...string...)`.
+                    #  Style(':root { --pico-font-size: 100%; }'),
+                     # Have a look at fasthtml/js.py to see how these Javascript libraries are added to FastHTML.
+                     # They are only 5-10 lines of code each, and you can add your own too.
+                    #  SortableJS('.sortable'),
+                     # MarkdownJS is actually provided as part of FastHTML, but we've included the js code here
+                     # so that you can see how it works.
+                    #  Script(markdown_js, type='module')
+                     )
+)
+
+rt = app.route
 
 # Helper function to highlight the selected substring
 def highlight_text(text: str, highlight: str):
@@ -163,4 +196,4 @@ def get_static(filename: str):
     return FileResponse(f"static/{filename}")
 
 
-serve()
+serve(reload_includes=["static/*"])

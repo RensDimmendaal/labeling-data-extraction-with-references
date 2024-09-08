@@ -92,3 +92,12 @@ mark {
 .field-form button:hover {
     background-color: #0056b3;
 }
+
+.job-posting {
+    white-space: pre-line; /* Preserve newlines and wrap lines */
+    word-wrap: break-word; /* Break long words */
+    padding: 10px; /* Optional: Add some padding for better readability */
+    background-color: #f9f9f9; /* Optional: Add a background color */
+    border: 1px solid #ddd; /* Optional: Add a border */
+    border-radius: 4px; /* Optional: Add rounded corners */
+}
