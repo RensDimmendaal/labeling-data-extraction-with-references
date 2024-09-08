@@ -14,7 +14,23 @@ document.addEventListener("DOMContentLoaded", function () {
             // If there is an active textarea, update its value with the selected text
             if (activeTextArea) {
                 activeTextArea.value = selectedText;  // Replace the current value with the selected text
+                updateHighlightedText(selectedText);  // Update the highlighted text in the job posting
             }
         }
+    });
+
+    // Function to update the highlighted text in the job posting
+    function updateHighlightedText(highlight) {
+        const jobPosting = document.querySelector('.job-posting');
+        const originalText = jobPosting.textContent;
+        const highlightedText = originalText.replace(/<mark>(.*?)<\/mark>/g, '$1'); // Remove existing highlights
+        const newHighlightedText = highlightedText.replace(highlight, `<mark>${highlight}</mark>`);
+        jobPosting.innerHTML = newHighlightedText;
+    }
+
+    // Detect changes in the textarea and update the highlighted text
+    document.querySelector('.active-field textarea').addEventListener('input', function (event) {
+        const newHighlight = event.target.value.trim();
+        updateHighlightedText(newHighlight);
     });
 });
