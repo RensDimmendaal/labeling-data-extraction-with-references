@@ -1,7 +1,7 @@
 {
     "job_title": {
         "fact": "Senior Software Engineer",
-        "substring_quote": "Senior Software Engineer"
+        "substring_quote": "We are looking for an experienced Senior Software Engineer to join our team."
     },
     "company": {
         "fact": "Tech Solutions Inc.",
@@ -16,7 +16,7 @@
         "substring_quote": "Salary: $120,000 - $140,000 annually"
     },
     "minimum_education": {
-        "fact": "Bachelor\u2019s degree in Computer Science",
-        "substring_quote": "Minimum Education: Bachelor\u2019s degree in Computer Science or related field"
+        "fact": "None required whatsoever",
+        "substring_quote": "We"
     }
 }

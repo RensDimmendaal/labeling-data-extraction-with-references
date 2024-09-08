@@ -117,9 +117,39 @@ def generate_forms(extraction, active_field, filename):
 # Route to display a list of available job postings for labeling
 @rt("/")
 def get():
-    postings = os.listdir("postings")
-    posting_links = [A(p, href=f"/label/{p.replace('.txt', '')}") for p in postings]
-    return Titled("Labeling Tool", Div(*posting_links))
+    postings_dir = "postings"
+    extracted_labels_dir = "extracted_labels"
+
+    # Load all postings and their corresponding labels
+    postings = []
+    for filename in os.listdir(postings_dir):
+        if filename.endswith(".txt"):
+            posting_name = filename[:-4]
+            posting_path = os.path.join(postings_dir, filename)
+            label_path = os.path.join(extracted_labels_dir, f"{posting_name}.json")
+
+            with open(posting_path, "r") as f:
+                posting_text = f.read()
+
+            with open(label_path, "r") as f:
+                label_data = json.load(f)
+
+            postings.append((posting_name, posting_text, label_data))
+
+    # Generate the table
+    table_headers = ["Posting Name"] + list(postings[0][2].keys())
+    table_rows = []
+    for posting_name, posting_text, label_data in postings:
+        row = [A(posting_name, href=f"/label/{posting_name}/job_title")] + [label_data[field]['fact'] for field in table_headers[1:]]
+        table_rows.append(row)
+
+    return Titled(
+        "Job Postings",
+        Table(
+            Tr(*[Th(header) for header in table_headers]),
+            *[Tr(*[Td(cell) for cell in row]) for row in table_rows]
+        ),
+    )
 
 
 @rt("/label/{filename}/")
