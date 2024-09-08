@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Detect when the user finishes selecting text (mouseup event)
     jobTextContainer.addEventListener("mouseup", function () {
         const selectedText = window.getSelection().toString().trim();
-        console.log(selectedText)
 
         if (selectedText) {
             // Find the active textarea for the active field
