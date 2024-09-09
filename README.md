@@ -9,6 +9,20 @@ So far this is just some hacking around for to see if I can make a simple labeli
     - metrics
     - some indications where data might be of low quality
 
+## Demo video
+
+https://github.com/user-attachments/assets/03a57aeb-926d-468a-8205-be62f7813635
+
+## Run
+
+Run the app.py 
+
+If using uv
+
+```
+uv run app.py
+```
+
 ## TODO
 
 - [ ] Save human labels as something different than the original generated labels
