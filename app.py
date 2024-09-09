@@ -117,8 +117,8 @@ def generate_forms(extraction, active_field, filename):
 # Route to display a list of available job postings for labeling
 @rt("/")
 def get():
-    postings_dir = "postings"
-    extracted_labels_dir = "extracted_labels"
+    postings_dir = "./data/job_postings/inputs/"
+    extracted_labels_dir = "./data/job_postings/predictions/"
 
     # Load all postings and their corresponding labels
     postings = []
@@ -164,12 +164,12 @@ def get(filename: str):
 @rt("/label/{filename}/{active_field}")
 def get(filename: str, active_field: str):
     # Load job posting text
-    posting_path = f"postings/{filename}.txt"
+    posting_path = f"./data/job_postings/inputs/{filename}.txt"
     with open(posting_path, "r") as f:
         posting_text = f.read()
 
     # Load corresponding labels (json)
-    label_path = f"extracted_labels/{filename}.json"
+    label_path = f"./data/job_postings/predictions/{filename}.json"
     with open(label_path, "r") as f:
         label_data = json.load(f)
 
@@ -204,7 +204,7 @@ def get(filename: str, active_field: str):
 @rt("/label/{filename}/{active_field}")
 def post(filename: str, active_field: str, fact: Fact):
     # Load the existing label data
-    label_path = f"extracted_labels/{filename}.json"
+    label_path = f"data/job_postings/human_labels/{filename}.json"
     with open(label_path, "r") as f:
         label_data = json.load(f)
 
